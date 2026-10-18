@@ -84,4 +84,14 @@ public class Library {
         }
         return expensiveBook;
     }
+
+    public ArrayList<Book> booksWithMinPages (int minPages){
+        ArrayList<Book> filteredBooks = new ArrayList<>();
+        for(Book book: books){
+            if(book.getNumberPages() >= minPages){
+                filteredBooks.add(book);
+            }
+        }
+        return filteredBooks;
+    }
 }

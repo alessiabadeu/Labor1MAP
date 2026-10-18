@@ -48,6 +48,10 @@ public class Main {
                     library.displayBooksPrice(library.getBooks());
                     System.out.println("The most expensive book: ");
                     System.out.println(library.mostExpensiveBook().getTitle());
+                case 5:
+                    System.out.println("Mindestanzahl: ");
+                    int minPages = scanner.nextInt();
+                    library.displayTitles(library.booksWithMinPages(minPages));
                 case 0:
                     break;
             }
