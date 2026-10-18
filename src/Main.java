@@ -22,13 +22,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int option = -1;
         while(option!=0){
-            System.out.println("Methods: ");
             System.out.println("1. Books of author");
             System.out.println("2. Average");
             System.out.println("3. Books with price limit");
             System.out.println("4. The most expensive book");
             System.out.println("5. Books with a certain amount of pages");
-            System.out.println("5. Two books for a budget");
+            System.out.println("6. Two books for a budget");
             System.out.println("0. Exit");
             option = scanner.nextInt();
             scanner.nextLine();
@@ -45,6 +44,10 @@ public class Main {
                     System.out.print("Maximaler Preis: ");
                     Double maxPrice = scanner.nextDouble();
                     library.displayBooksPrice(library.booksUnderPrice(maxPrice));
+                case 4:
+                    library.displayBooksPrice(library.getBooks());
+                    System.out.println("The most expensive book: ");
+                    System.out.println(library.mostExpensiveBook().getTitle());
                 case 0:
                     break;
             }

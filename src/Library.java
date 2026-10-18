@@ -4,7 +4,7 @@ public class Library {
     private ArrayList<Book> books;
 
     public Library() {
-        this.books = new ArrayList<Book>();
+        this.books = new ArrayList<>();
     }
 
     public void addBook(Book book){
@@ -12,9 +12,7 @@ public class Library {
     }
 
     public void remove(Book book){
-        if(books.contains(book)){
             books.remove(book);
-        }
     }
 
     public ArrayList<Book> getBooks(){
@@ -40,7 +38,7 @@ public class Library {
     }
 
     public ArrayList<Book> BooksOfAuthor (String author){
-        ArrayList<Book> filteredBooks = new ArrayList<Book>();
+        ArrayList<Book> filteredBooks = new ArrayList<>();
         for(Book book: books){
             if(book.getAuthor().equals(author)){
                 filteredBooks.add(book);
@@ -62,12 +60,28 @@ public class Library {
     }
 
     public ArrayList<Book> booksUnderPrice(double maxPrice){
-        ArrayList<Book> filteredBooks = new ArrayList<Book>();
+        ArrayList<Book> filteredBooks = new ArrayList<>();
         for(Book book: books){
             if(book.getPrice() <= maxPrice){
                 filteredBooks.add(book);
             }
         }
         return filteredBooks;
+    }
+
+    public Book mostExpensiveBook(){
+        if(books.isEmpty()){
+            return null;
+        }
+
+        double maxPrice = 0;
+        Book expensiveBook = books.getFirst();
+        for(Book book: books){
+           if(book.getPrice() > maxPrice){
+               maxPrice = book.getPrice();
+               expensiveBook = book;
+           }
+        }
+        return expensiveBook;
     }
 }
