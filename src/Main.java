@@ -2,9 +2,9 @@ public class Main {
     public static void main(String[] args) {
         Book book1 = new Book("Clean Code", "Robert Martin", 45.00, 464);
         Book book2 = new Book("1984", "George Orwell", 18.00, 328);
-        Book book3 = new Book("Animal Farm", "George Orwell", 11.99, 112);
+        Book book3 = new Book("Animal Farm", "George Orwell", 12.00, 112);
         Book book4 = new Book("Java Basics", "Max Muller", 35.00, 520);
-        Book book5 = new Book("The Hobbit", "J.R.R Tolkien", 27.99, 310);
+        Book book5 = new Book("The Hobbit", "J.R.R Tolkien", 28.00, 310);
 
         Library library = new Library();
         library.addBook(book1);
@@ -15,5 +15,8 @@ public class Main {
 
         System.out.println("Author: George Orwell");
         library.displayStrings(library.BooksOfAuthor("George Orwell"));
+
+        library.displayBooksPrice(library.getBooks());
+        System.out.println(library.averagePages());
     }
 }
