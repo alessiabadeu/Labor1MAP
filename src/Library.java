@@ -11,13 +11,25 @@ public class Library {
         books.add(book);
     }
 
+    public void remove(Book book){
+        if(books.contains(book)){
+            books.remove(book);
+        }
+    }
+
     public ArrayList<Book> getBooks(){
         return books;
     }
 
-    public void displayStrings(ArrayList<String> strings){
-        for(String string: strings){
-            System.out.println(string);
+    public void displayTitles(ArrayList<Book> bookList){
+        for(Book book: bookList){
+            System.out.println(book.getTitle());
+        }
+    }
+
+    public void displayBooksPages(ArrayList<Book> bookList){
+        for(Book book: bookList){
+            System.out.println(book.getTitle()+" -> "+book.getNumberPages()+" Seiten");
         }
     }
 
@@ -26,14 +38,15 @@ public class Library {
             System.out.println(book.getTitle()+" -> "+book.getPrice()+" Euro");
         }
     }
-    public ArrayList<String> BooksOfAuthor (String author){
-        ArrayList<String> titles = new ArrayList<String>();
+
+    public ArrayList<Book> BooksOfAuthor (String author){
+        ArrayList<Book> filteredBooks = new ArrayList<Book>();
         for(Book book: books){
             if(book.getAuthor().equals(author)){
-                titles.add(book.getTitle());
+                filteredBooks.add(book);
             }
         }
-        return titles;
+        return filteredBooks;
     }
 
     public double averagePages(){
@@ -46,5 +59,15 @@ public class Library {
             sumPages+=book.getNumberPages();
         }
         return (double) sumPages/books.size();
+    }
+
+    public ArrayList<Book> booksUnderPrice(double maxPrice){
+        ArrayList<Book> filteredBooks = new ArrayList<Book>();
+        for(Book book: books){
+            if(book.getPrice() <= maxPrice){
+                filteredBooks.add(book);
+            }
+        }
+        return filteredBooks;
     }
 }

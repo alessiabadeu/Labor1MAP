@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Book book1 = new Book("Clean Code", "Robert Martin", 45.00, 464);
@@ -13,10 +15,39 @@ public class Main {
         library.addBook(book4);
         library.addBook(book5);
 
-        System.out.println("Author: George Orwell");
-        library.displayStrings(library.BooksOfAuthor("George Orwell"));
+        Menu(library);
+    }
 
-        library.displayBooksPrice(library.getBooks());
-        System.out.println(library.averagePages());
+    public static void Menu (Library library){
+        Scanner scanner = new Scanner(System.in);
+        int option = -1;
+        while(option!=0){
+            System.out.println("Methods: ");
+            System.out.println("1. Books of author");
+            System.out.println("2. Average");
+            System.out.println("3. Books with price limit");
+            System.out.println("4. The most expensive book");
+            System.out.println("5. Books with a certain amount of pages");
+            System.out.println("5. Two books for a budget");
+            System.out.println("0. Exit");
+            option = scanner.nextInt();
+            scanner.nextLine();
+            switch (option){
+                case 1:
+                    System.out.println("Author: ");
+                    String author = scanner.nextLine();
+                    library.displayTitles(library.BooksOfAuthor(author));
+                    break;
+                case 2:
+                    library.displayBooksPages(library.getBooks());
+                    System.out.println(library.averagePages());
+                case 3:
+                    System.out.print("Maximaler Preis: ");
+                    Double maxPrice = scanner.nextDouble();
+                    library.displayBooksPrice(library.booksUnderPrice(maxPrice));
+                case 0:
+                    break;
+            }
+        }
     }
 }
