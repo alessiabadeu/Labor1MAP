@@ -1,13 +1,16 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+public class Main {
+    public static void main(String[] args) {
+        Book book1 = new Book("Clean Code", "Robert Martin", 45.00, 464);
+        Book book2 = new Book("1984", "George Orwell", 18.00, 328);
+        Book book3 = new Book("Animal Farm", "George Orwell", 11.99, 112);
+        Book book4 = new Book("Java Basics", "Max Muller", 35.00, 520);
+        Book book5 = new Book("The Hobbit", "J.R.R Tolkien", 27.99, 310);
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+        Library library = new Library();
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+        library.addBook(book4);
+        library.addBook(book5);
     }
 }
