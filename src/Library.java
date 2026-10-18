@@ -94,4 +94,31 @@ public class Library {
         }
         return filteredBooks;
     }
+
+    public ArrayList<Book> twoBooksWithinBudget(double budget){
+        double max = 0;
+        double sum = 0;
+        Book buyBook1 = null;
+        Book buyBook2 = null;
+        ArrayList<Book> result = new ArrayList<>();
+        for(int index1 = 0; index1<books.size(); index1++){
+            for(int index2 = index1+1; index2< books.size(); index2++ ){
+                if(index1!=index2){
+                    Book book1 = books.get(index1);
+                    Book bool2 = books.get(index2);
+                    sum = book1.getPrice()+bool2.getPrice();
+                    if(sum <= budget && sum > max){
+                        max = sum;
+                        buyBook1 = book1;
+                        buyBook2 = bool2;
+                    }
+                }
+            }
+        }
+        if(buyBook1!=null){
+            result.add(buyBook1);
+            result.add(buyBook2);
+        }
+        return result;
+    }
 }

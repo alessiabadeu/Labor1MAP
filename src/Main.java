@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -46,12 +47,24 @@ public class Main {
                     library.displayBooksPrice(library.booksUnderPrice(maxPrice));
                 case 4:
                     library.displayBooksPrice(library.getBooks());
-                    System.out.println("The most expensive book: ");
+                    System.out.println("Teureste Buch: ");
                     System.out.println(library.mostExpensiveBook().getTitle());
                 case 5:
                     System.out.println("Mindestanzahl: ");
                     int minPages = scanner.nextInt();
                     library.displayTitles(library.booksWithMinPages(minPages));
+                case 6:
+                    System.out.println("Budget: ");
+                    double budget = scanner.nextDouble();
+                    ArrayList<Book> books = library.twoBooksWithinBudget(budget);
+                    if(books.size() == 2) {
+                        System.out.println(books.getFirst().getTitle() + " + " + books.get(1).getTitle());
+                        double price = books.getFirst().getPrice() + books.get(1).getPrice();
+                        System.out.println("Gesamtpreis: " + price + " Euro");
+                    }
+                    else{
+                        System.out.println("Es gibt keine solche Bucher");
+                    }
                 case 0:
                     break;
             }
