@@ -97,7 +97,7 @@ public class Library {
 
     public ArrayList<Book> twoBooksWithinBudget(double budget){
         double max = 0;
-        double sum = 0;
+        double sum;
         Book buyBook1 = null;
         Book buyBook2 = null;
         ArrayList<Book> result = new ArrayList<>();
